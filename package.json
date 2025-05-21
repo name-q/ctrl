@@ -2,12 +2,12 @@
   "name": "ctrl",
   "version": "1.0.0",
   "description": "mp4 ascii player",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js"
+    "import": "./dist/bundle.esm.js"
   },
   "scripts": {
-    "build": "concurrently -s first -n esm \"tsc -p tsconfig.esm.json\""
+    "build": "rollup -c"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +18,11 @@
     "h264decoder": "^1.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@types/node": "^22.15.21",
-    "concurrently": "^9.1.2",
+    "rollup": "^4.41.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

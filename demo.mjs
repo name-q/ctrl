@@ -1,7 +1,9 @@
-global = self;
-import { playVideo } from './dist/bundle.esm.js';
+import { playVideo } from './dist/index.js';
+import path from 'node:path';
 
-await playVideo('./video.mp4', {
-  fps: 12,     // 可选：帧率
-  width: 80    // 可选：ASCII 渲染宽度（字符数）
+const filePath = path.resolve('./video.mp4'); // 放你的视频路径
+
+await playVideo(filePath, {
+  fps: 10,
+  width: 80,
 });

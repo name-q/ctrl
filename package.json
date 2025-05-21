@@ -1,32 +1,20 @@
 {
   "name": "ctrl",
   "version": "1.0.0",
-  "description": "mp4 ascii player",
-  "types": "./dist/types/index.d.ts",
   "type": "module",
-  "exports": {
-    "import": "./dist/bundle.esm.js"
-  },
+  "description": "CLI mp4 ascii player",
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "tsc",
+    "start": "node demo.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "chalk": "^5.4.1",
     "demuxer": "^2.3.0",
     "h264decoder": "^1.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.3",
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "@rollup/plugin-typescript": "^12.1.2",
     "@types/node": "^22.15.21",
-    "rollup": "^4.41.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.0.0"
   }
 }

@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { MP4Demuxer } from "demuxer";
+import { MP4Demux } from "demuxer";
 import { H264Decoder } from "h264decoder";
 
 export interface YUVFrame {
@@ -10,7 +10,7 @@ export interface YUVFrame {
 
 export async function decodeMP4ToYUVFrames(path: string): Promise<YUVFrame[]> {
   const buffer = fs.readFileSync(path);
-  const demuxer = new MP4Demuxer();
+  const demuxer = new MP4Demux();
   const { streams } = demuxer.demux(new Uint8Array(buffer));
   const video = streams.find((s) => s.codec === "avc1");
   if (!video) throw new Error("No video track found");

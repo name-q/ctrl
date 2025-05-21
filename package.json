@@ -2,14 +2,12 @@
   "name": "ctrl",
   "version": "1.0.0",
   "description": "mp4 ascii player",
-  "main": "dist/cjs/index.js",
   "types": "./types/index.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.js"
+    "import": "./dist/esm/index.js"
   },
   "scripts": {
-    "build": "concurrently -s first -n esm,cjs \"tsc -p tsconfig.esm.json\" \"tsc -p tsconfig.cjs.json\""
+    "build": "concurrently -s first -n esm \"tsc -p tsconfig.esm.json\""
   },
   "keywords": [],
   "author": "",

@@ -2,17 +2,16 @@
   "name": "ctrl",
   "version": "1.0.0",
   "description": "mp4 ascii player",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "types": "./types/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
   },
   "scripts": {
-    "build": "tsc && cp dist/index.js dist/index.cjs",
-    "dev": "ts-node src/index.ts"
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build": "npm run build:esm && npm run build:cjs",
   },
   "keywords": [],
   "author": "",
@@ -24,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
 }

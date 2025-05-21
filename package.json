@@ -9,9 +9,7 @@
     "require": "./dist/cjs/index.js"
   },
   "scripts": {
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build": "npm run build:esm && npm run build:cjs"
+    "build": "concurrently -s first -n esm,cjs \"tsc -p tsconfig.esm.json\" \"tsc -p tsconfig.cjs.json\""
   },
   "keywords": [],
   "author": "",
@@ -23,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
+    "concurrently": "^9.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
